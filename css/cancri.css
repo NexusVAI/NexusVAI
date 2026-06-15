@@ -1,0 +1,103 @@
+@font-face {
+  font-family: "Anthropic Sans";
+  src: url("../../GitHub/chat/fonts/AnthropicSans-Roman-Variable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── 导航品牌：Nexus（展开）+ VAI 图标（收起） ── */
+.nav_logo_wrap.cancri-nav-brand {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.cancri-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #141413;
+}
+
+.cancri-brand__icon {
+  display: block;
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 4px;
+}
+
+.cancri-brand__word-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  max-width: 0;
+  opacity: 0;
+  transform: translateX(10px);
+  transition:
+    max-width 280ms cubic-bezier(0, 0, 0.2, 1),
+    opacity 240ms cubic-bezier(0.32, 0.72, 0, 1),
+    transform 280ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.cancri-brand__word-wrap.is-in {
+  max-width: 5.2em;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+html.is-nav-scrolled .cancri-brand__word-wrap.is-in {
+  max-width: 0;
+  opacity: 0;
+  transform: translateX(10px);
+}
+
+.cancri-brand__word {
+  display: inline-block;
+  padding-right: 0.04em;
+  font-family: "Anthropic Sans", var(--sans, ui-sans-serif), system-ui, -apple-system,
+    "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* 移动导航略小 */
+.nav_wrap.is-mobile .cancri-brand__icon {
+  width: 28px;
+  height: 28px;
+}
+
+.nav_wrap.is-mobile .cancri-brand__word {
+  font-size: 1rem;
+}
+
+/* ── 页脚 Logo：NexusVAI 完整字标 ── */
+.footer-brand {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: 1.5rem;
+}
+
+.cancri-brand--footer .cancri-brand__word-wrap,
+html.is-nav-scrolled .cancri-brand--footer .cancri-brand__word-wrap {
+  max-width: 5.2em;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.cancri-brand--footer .cancri-brand__icon {
+  width: 32px;
+  height: 32px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cancri-brand__word-wrap {
+    transition: none !important;
+  }
+}
